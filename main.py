@@ -10,7 +10,6 @@ with open("ex.txt", 'r') as f:
     fin = L[len(L)-1]
     L.remove(L[len(L)-2])
     L.remove(L[len(L)-1])
-print(L)
 
 K = []
 for i in Lst:
@@ -54,8 +53,6 @@ for j in Lst:
     if j not in fin:
         Lmin[0].append(j)
 
-print(Lmin)
-
 
 
 
@@ -98,7 +95,7 @@ while ok_fin == 0:
         for i in Lechiv:
             oki = 0
             if j in i:
-                ok = 1
+                oki = 1
                 break
         if oki == 0:
             Lechiv.append([j])
@@ -107,16 +104,6 @@ while ok_fin == 0:
 
 
     Lechiv2 = [i for i in Lechiv if len(i) != 3]
-
-    print(Lechiv2)
-
-
-    Laux2 = []
-    for i in Lechiv2:
-        if i not in Laux2:
-            Laux2.append(i)
-    print(Laux2, "OK")
-
 
 # -------------------------------------------------------------------
 
@@ -153,11 +140,26 @@ while ok_fin == 0:
 
 
 
-    print(Laux2)
-    Laux3 = Concat3(Laux2)
+    Laux3 = Concat3(Lechiv2)
     if Lmin == Laux3:
         ok_fin = 1
-    print(Laux3)
+print(Laux3)
+
+Lst2 = Laux3
+
+L2 = []
+for i in Lst2:
+    for j in i:
+        for k in L:
+            if k[0] == j:
+                k1 = k[1]
+                k2 = k[2]
+                for m in Lst2:
+                    if k2 in m:
+                        L2.append([i, k1, m])
+        break
+print(L2)
+
 
 
 
